@@ -1,25 +1,38 @@
-import React from 'react'
-import Logo from '../logo/Logo'
-import { Link } from 'react-router-dom';
-import HeaderStyles from './HeaderStyles'
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
+import logo from "../../assets/shared/desktop/logo.svg";
+import MobileMenu from "../mobile_menu/MobileMenu";
+import Cart from "../cart/Cart";
+import HeaderStyles from "./HeaderStyles";
 
 function Header() {
-    const classes = HeaderStyles();
-    return (
-        <nav className={classes.Header}>
-            <div className={classes.wrapper}>
-                <Logo/>
-                <div className={classes.nav__item}>
-                    <Link>HOME</Link>
-                    <Link>HEADPHONES</Link>
-                    <Link>SPAKERS</Link>
-                    <Link>EARPHONES</Link>
-                </div>
-
-            </div>
-          
-        </nav>
-    )
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+  window.addEventListener("resize", () => {
+    setWindowWidth(window.innerWidth);
+  });
+  const classes = HeaderStyles();
+  return (
+    <nav className={classes.Header}>
+      <div className={classes.wrapper}>
+        <div className={classes.mobile__menu}>
+          <MobileMenu />
+        </div>
+        <Link className={classes.logo}>
+          <img src={logo} alt="audiophile logo" />
+        </Link>
+        <div className={classes.desktop__Links}>
+          <Link className={classes.nav__Link}>HOME</Link>
+          <Link className={classes.nav__Link}>HEADPHONES</Link>
+          <Link className={classes.nav__Link}>SPEAKERS</Link>
+          <Link className={classes.nav__Link}>EARPHONES</Link>
+        </div>
+        <div className={classes.cart}>
+          <Cart />
+        </div>
+      </div>
+      <div className={classes.underline}></div>
+    </nav>
+  );
 }
 
-export default Header
+export default Header;

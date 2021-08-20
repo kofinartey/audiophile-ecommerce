@@ -8,6 +8,9 @@ const HeaderStyles = makeStyles({
     justifyContent: "center",
     alignItems: "center",
   },
+  mobile__menu: {
+    zIndex: "1000",
+  },
   underline: {
     backgroundColor: "#979797",
     opacity: "0.5",

@@ -21,10 +21,18 @@ function Header() {
           <img src={logo} alt="audiophile logo" />
         </Link>
         <div className={classes.desktop__Links}>
-          <Link className={classes.nav__Link}>HOME</Link>
-          <Link className={classes.nav__Link}>HEADPHONES</Link>
-          <Link className={classes.nav__Link}>SPEAKERS</Link>
-          <Link className={classes.nav__Link}>EARPHONES</Link>
+          <Link to="/" className={classes.nav__Link}>
+            HOME
+          </Link>
+          <Link to="/headphones" className={classes.nav__Link}>
+            HEADPHONES
+          </Link>
+          <Link to="/speakers" className={classes.nav__Link}>
+            SPEAKERS
+          </Link>
+          <Link to="/earphones" className={classes.nav__Link}>
+            EARPHONES
+          </Link>
         </div>
         <div className={classes.cart}>
           <Cart />

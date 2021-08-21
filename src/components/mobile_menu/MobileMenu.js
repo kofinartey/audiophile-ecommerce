@@ -9,23 +9,45 @@ function MobileMenu() {
   const classes = MobileMenuStyles();
   const [open, setOpen] = useState(false);
 
-  const handleHamburger = () => {
+  const handleClick = () => {
     setOpen(!open);
   };
+
   return (
     <div className={classes.MobileMenu}>
-      <div className={classes.menu__toggler}>
-        <img src={hamburger} alt="" onClick={handleHamburger} />
+      <div className={classes.menu__toggler} onClick={handleClick}>
+        <img src={hamburger} alt="" />
       </div>
       <div
         className={classes.overlay}
         style={{ opacity: open && "1", pointerEvents: open && "all" }}
+        onClick={handleClick}
       ></div>
       <div className={classes.menu} style={{ left: open && "0" }}>
-        <Link className={classes.mobile__Link}>HOME</Link>
-        <Link className={classes.mobile__Link}>HEADPHONES</Link>
-        <Link className={classes.mobile__Link}>SPEAKERS</Link>
-        <Link className={classes.mobile__Link}>EARPHONES</Link>
+        <Link to="/" className={classes.mobile__Link} onClick={handleClick}>
+          HOME
+        </Link>
+        <Link
+          to="/headphones"
+          className={classes.mobile__Link}
+          onClick={handleClick}
+        >
+          HEADPHONES
+        </Link>
+        <Link
+          to="/speakers"
+          className={classes.mobile__Link}
+          onClick={handleClick}
+        >
+          SPEAKERS
+        </Link>
+        <Link
+          to="/earphones"
+          className={classes.mobile__Link}
+          onClick={handleClick}
+        >
+          EARPHONES
+        </Link>
       </div>
     </div>
   );

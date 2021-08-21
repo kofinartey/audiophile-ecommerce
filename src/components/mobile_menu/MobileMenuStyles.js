@@ -5,10 +5,11 @@ const MobileMenuStyles = makeStyles({
 
   overlay: {
     width: "100%",
-    height: "100vh",
+    height: "100%",
     backgroundColor: "rgba(0,0,0,0.5)",
     position: "fixed",
     left: "0",
+    top: "5.625rem",
     opacity: "0",
     pointerEvents: "none",
     transition: "all .3s ease-in-out",
@@ -18,7 +19,7 @@ const MobileMenuStyles = makeStyles({
   },
   menu: {
     backgroundColor: "#101010",
-    width: "100vw",
+    width: "100%",
     display: "flex",
     flexDirection: "column",
     alignItems: "center",

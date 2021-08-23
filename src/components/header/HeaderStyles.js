@@ -71,6 +71,9 @@ const HeaderStyles = makeStyles({
     Header: {
       height: "6.0625rem",
     },
+    underline: {
+      width: "80%",
+    },
     wrapper: {
       width: "80%",
       display: "flex",

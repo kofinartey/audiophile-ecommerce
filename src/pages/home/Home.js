@@ -1,9 +1,53 @@
 import React from "react";
+import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
+import About from "../../components/about/About.";
 import Button from "../../components/button/Button";
 import hero_mobile from "../../assets/home/mobile/image-header.jpg";
 import hero_tablet from "../../assets/home/tablet/image-header.jpg";
 import hero_desktop from "../../assets/home/desktop/image-hero.jpg";
+import link_speakers from "../../assets/shared/desktop/image-speakers.png";
+import link_headphones from "../../assets/shared/desktop/image-headphones.png";
+import link_earphones from "../../assets/shared/desktop/image-earphones.png";
+import speaker_zx9_mobile from "../../assets/home/mobile/image-speaker-zx9.png";
+import speaker_zx9_tablet from "../../assets/home/tablet/image-speaker-zx9.png";
+import speaker_zx9_desktop from "../../assets/home/desktop/image-speaker-zx9.png";
+import speaker_zx7_mobile from "../../assets/home/mobile/image-speaker-zx7.jpg";
+import speaker_zx7_tablet from "../../assets/home/tablet/image-speaker-zx7.jpg";
+import speaker_zx7_desktop from "../../assets/home/desktop/image-speaker-zx7.jpg";
+import earphones_yx1_mobile from "../../assets/home/mobile/image-earphones-yx1.jpg";
+import earphones_yx1_tablet from "../../assets/home/tablet/image-earphones-yx1.jpg";
+import earphones_yx1_desktop from "../../assets/home/desktop/image-earphones-yx1.jpg";
+
 import HomeStyles from "./HomeStyles";
+
+const linkData = [
+  { link: "headphones", imgsrc: link_headphones },
+  { link: "speakers", imgsrc: link_speakers },
+  { link: "earphones", imgsrc: link_earphones },
+];
+
+const heroVariant = {
+  hidden: { opacity: 0 },
+  show: {
+    opacity: 1,
+    transition: {
+      duration: 1,
+      staggerChildren: 0.1,
+    },
+  },
+};
+const heroItemVariant = {
+  hidden: { x: 200, opacity: 0 },
+  show: {
+    x: 0,
+    opacity: 1,
+    transition: {
+      duration: 1,
+      stiffness: 500,
+    },
+  },
+};
 
 function Home() {
   const classes = HomeStyles();
@@ -12,24 +56,117 @@ function Home() {
       {/* ----- home hero ------ */}
       <section className={classes.hero}>
         <picture>
-          <source srcset={hero_desktop} media="(min-width: 64rem)" />
-          <source srcset={hero_tablet} media="(min-width: 45rem)" />
+          <source srcSet={hero_desktop} media="(min-width: 64rem)" />
+          <source srcSet={hero_tablet} media="(min-width: 45rem)" />
           <img src={hero_mobile} alt="" />
         </picture>
         <div className={classes.hero__wrapper}>
-          <div className={classes.hero__content}>
-            <h3>NEW PRODUCT</h3>
-            <h2>XX99 Mark II Headphones</h2>
-            <p>
+          <motion.div
+            className={classes.hero__content}
+            variants={heroVariant}
+            initial="hidden"
+            animate="show"
+          >
+            <motion.h3>NEW PRODUCT</motion.h3>
+            <motion.h2 variants={heroItemVariant}>
+              XX99 Mark II Headphones
+            </motion.h2>
+            <motion.p variants={heroItemVariant}>
               Experience natural, lifelike audio and exceptional build quality
               made for the passionate music enthusiast.
-            </p>
-            <div className={classes.hero__btn}>
+            </motion.p>
+            <motion.div
+              className={classes.hero__btn}
+              variants={heroItemVariant}
+            >
               <Button primary>See Product</Button>
+            </motion.div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* ------ image links to other pages ------- */}
+      <section className={classes.section_page_links}>
+        <div className={classes.wrapper_page_links}>
+          {linkData.map((data) => (
+            <motion.div
+              className={classes.link_container}
+              key={data.link}
+              whileHover={{ y: -10, opacity: 0.5 }}
+            >
+              <Link to={`/${data.link}`} className={classes.page_link}>
+                <img src={data.imgsrc} alt="" />
+                <h6>{data.link}</h6>
+
+                <Button>shop</Button>
+
+                <div className={classes.link_bkg}></div>
+              </Link>
+            </motion.div>
+          ))}
+        </div>
+      </section>
+
+      {/* ------ section for featured products on homepage ------ */}
+      <section className={classes.featured}>
+        <div className={classes.wrapper_featured}>
+          {/* speaker zx9 */}
+          <div className={`${classes.speaker_zx9} ${classes.featured__item}`}>
+            <picture className={classes.zx9_picture}>
+              <source srcSet={speaker_zx9_desktop} media="(min-width: 64rem)" />
+              <source srcSet={speaker_zx9_tablet} media="(min-width: 48rem)" />
+              <img src={speaker_zx9_mobile} alt="speaker zx9" />
+            </picture>
+            <div className={classes.zx9__text}>
+              <h2>zx9 speaker</h2>
+              <p>
+                Upgrade to premium speakers that are phenomenally built to
+                deliver truly remarkable sound.
+              </p>
+              <Button dark>See product</Button>
+            </div>
+          </div>
+
+          {/* speaker zx7 */}
+          <div className={`${classes.speaker_zx7} ${classes.featured__item}`}>
+            <picture>
+              <source srcSet={speaker_zx7_desktop} media="(min-width: 64rem)" />
+              <source srcSet={speaker_zx7_tablet} media="(min-width: 48rem)" />
+              <img src={speaker_zx7_mobile} alt="zx7 speaker" />
+            </picture>
+            <div className={classes.zx7__content}>
+              <div className={classes.zx7__text}>
+                <h4>zx7 speaker</h4>
+                <Button outlined>See product</Button>
+              </div>
+            </div>
+          </div>
+
+          {/* earphones yx1 */}
+          <div className={`${classes.earphones_yx1} ${classes.featured__item}`}>
+            <div className={`${classes.yx1_one} ${classes.yx1_half}`}>
+              <picture>
+                <source
+                  srcSet={earphones_yx1_desktop}
+                  media="(min-width: 64rem)"
+                />
+                <source
+                  srcSet={earphones_yx1_tablet}
+                  media="(min-width: 48rem)"
+                />
+                <img src={earphones_yx1_mobile} alt="yx1 earphones" />
+              </picture>
+            </div>
+            <div className={`${classes.yx1_two} ${classes.yx1_half}`}>
+              <h4> yx1 earphones</h4>
+              <Button outlined>see product</Button>
             </div>
           </div>
         </div>
       </section>
+
+      {/* ----- section for ABOUT ------ */}
+      <About />
     </div>
   );
 }

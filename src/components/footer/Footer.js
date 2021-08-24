@@ -12,7 +12,7 @@ function Footer() {
     <footer className={classes.footer}>
       <div className={classes.wrapper}>
         <div className={classes.overline}></div>
-        <Link className={classes.logo}>
+        <Link to="/" className={classes.logo}>
           <img src={logo} alt="Link to home" />
         </Link>
 

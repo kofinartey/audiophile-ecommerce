@@ -1,14 +1,11 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import About from "../../components/about/About.";
+import About from "../../components/about/About";
 import Button from "../../components/button/Button";
 import hero_mobile from "../../assets/home/mobile/image-header.jpg";
 import hero_tablet from "../../assets/home/tablet/image-header.jpg";
 import hero_desktop from "../../assets/home/desktop/image-hero.jpg";
-import link_speakers from "../../assets/shared/desktop/image-speakers.png";
-import link_headphones from "../../assets/shared/desktop/image-headphones.png";
-import link_earphones from "../../assets/shared/desktop/image-earphones.png";
 import speaker_zx9_mobile from "../../assets/home/mobile/image-speaker-zx9.png";
 import speaker_zx9_tablet from "../../assets/home/tablet/image-speaker-zx9.png";
 import speaker_zx9_desktop from "../../assets/home/desktop/image-speaker-zx9.png";
@@ -20,12 +17,7 @@ import earphones_yx1_tablet from "../../assets/home/tablet/image-earphones-yx1.j
 import earphones_yx1_desktop from "../../assets/home/desktop/image-earphones-yx1.jpg";
 
 import HomeStyles from "./HomeStyles";
-
-const linkData = [
-  { link: "headphones", imgsrc: link_headphones },
-  { link: "speakers", imgsrc: link_speakers },
-  { link: "earphones", imgsrc: link_earphones },
-];
+import PageLinks from "../../components/page_links/PageLinks";
 
 const heroVariant = {
   hidden: { opacity: 0 },
@@ -86,26 +78,7 @@ function Home() {
       </section>
 
       {/* ------ image links to other pages ------- */}
-      <section className={classes.section_page_links}>
-        <div className={classes.wrapper_page_links}>
-          {linkData.map((data) => (
-            <motion.div
-              className={classes.link_container}
-              key={data.link}
-              whileHover={{ y: -10, opacity: 0.5 }}
-            >
-              <Link to={`/${data.link}`} className={classes.page_link}>
-                <img src={data.imgsrc} alt="" />
-                <h6>{data.link}</h6>
-
-                <Button>shop</Button>
-
-                <div className={classes.link_bkg}></div>
-              </Link>
-            </motion.div>
-          ))}
-        </div>
-      </section>
+      <PageLinks />
 
       {/* ------ section for featured products on homepage ------ */}
       <section className={classes.featured}>

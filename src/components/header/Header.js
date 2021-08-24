@@ -6,10 +6,10 @@ import Cart from "../cart/Cart";
 import HeaderStyles from "./HeaderStyles";
 
 function Header() {
-  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
-  window.addEventListener("resize", () => {
-    setWindowWidth(window.innerWidth);
-  });
+  // const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+  // window.addEventListener("resize", () => {
+  //   setWindowWidth(window.innerWidth);
+  // });
   const classes = HeaderStyles();
   return (
     <nav className={classes.Header}>
@@ -17,7 +17,7 @@ function Header() {
         <div className={classes.mobile__menu}>
           <MobileMenu />
         </div>
-        <Link className={classes.logo}>
+        <Link to="/" className={classes.logo}>
           <img src={logo} alt="audiophile logo" />
         </Link>
         <div className={classes.desktop__Links}>

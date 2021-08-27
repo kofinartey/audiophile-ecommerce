@@ -72,10 +72,11 @@ const HeaderStyles = makeStyles({
       height: "6.0625rem",
     },
     underline: {
-      width: "80%",
+      width: "77%",
+      top: "6.0625rem",
     },
     wrapper: {
-      width: "80%",
+      width: "77%",
       display: "flex",
     },
     desktop__Links: {

@@ -70,7 +70,7 @@ const ProductSummaryStyles = makeStyles({
       },
     },
     product__image: {
-      width: "50%",
+      width: "49%",
     },
     product__text: {
       width: "40%",

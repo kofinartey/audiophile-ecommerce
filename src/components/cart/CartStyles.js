@@ -4,15 +4,21 @@ const CartStyles = makeStyles({
   Cart: {
     position: "relative",
   },
+  cartIcon: {
+    position: "relative",
+    cursor: "pointer",
+  },
   cartCount: {
     width: "1.5rem",
     height: "1.5rem",
     backgroundColor: "#D87D4A",
     color: "white",
     borderRadius: "50%",
-    position: "relative",
-    left: "-0.5rem",
-    top: "-0.5rem",
+    position: "absolute",
+    display: "flex",
+    justifyContent: "center",
+    left: "1rem",
+    top: "-0.8rem",
     "& h6": {
       fontSize: "0.8rem",
     },
@@ -27,7 +33,7 @@ const CartStyles = makeStyles({
   },
   cart__content: {
     minWidth: "21rem",
-    // maxWidth: "24rem",
+    width: "24rem",
     backgroundColor: "white",
     borderRadius: "0.5rem",
     padding: "2rem 1rem",
@@ -53,16 +59,20 @@ const CartStyles = makeStyles({
   },
   cart__item: {
     display: "flex",
-    justifyContent: "space-between",
+    // justifyContent: "space-between",
     alignItems: "center",
     marginBottom: "1rem",
+    position: "relative",
   },
   item__image: {
     width: "4rem",
     height: "4rem",
     marginRight: "1rem",
-    backgroundColor: "rgba(0,0,0,0.2)",
-    borderRadius: "0.5rem",
+
+    "& img": {
+      width: "100%",
+      borderRadius: "0.5rem",
+    },
   },
   item__summary: {
     "& h6": {
@@ -76,6 +86,9 @@ const CartStyles = makeStyles({
     display: "flex",
     justifyContent: "space-between",
     alignItems: "center",
+    justifySelf: "end",
+    position: "absolute",
+    right: "0",
   },
   btn: {
     height: "2rem",

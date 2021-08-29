@@ -19,7 +19,7 @@ function Footer() {
         <div className={classes.nav__links}>
           <Link to="/">HOME</Link>
           <Link to="/headphones">HEADPHONES</Link>
-          <Link to="/speakersw">SPEAKERS</Link>
+          <Link to="/speakers">SPEAKERS</Link>
           <Link to="/earphones">EARPHONES</Link>
         </div>
 

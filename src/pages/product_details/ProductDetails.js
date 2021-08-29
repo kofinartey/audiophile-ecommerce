@@ -1,7 +1,10 @@
 import React, { useState } from "react";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
+import { v4 } from "uuid";
+import { addToCart } from "../../redux/cart/cartAction";
+
 import formatAmount from "../../helper_functions/formatAmount";
 import Button from "../../components/button/Button";
 import About from "../../components/about/About";
@@ -12,11 +15,11 @@ function ProductDetails(props) {
   const classes = ProductDetailsStyles();
   const [purchaseQty, setPurchaseQty] = useState(1);
   const allData = useSelector((state) => state.data);
+  const cartData = useSelector((state) => state.cart);
+  const dispatch = useDispatch();
   const productName = props.routeprops.match.params.product;
+  allData.map((item) => console.log(item.name));
   const product = allData.find((item) => item.slug === productName);
-  // console.log(productData);
-  console.log(product.image.mobile);
-  // // console.log(productData);
 
   const addItem = () => {
     setPurchaseQty((curState) => curState + 1);
@@ -24,6 +27,17 @@ function ProductDetails(props) {
   const removeItem = () => {
     setPurchaseQty((curState) => (curState !== 1 ? curState - 1 : 1));
   };
+  const dataToAdd = {
+    name: product.name,
+    slug: product.slug,
+    id: product.id,
+    price: product.price,
+    qty: purchaseQty,
+  };
+  const handleAddToCart = () => {
+    dispatch(addToCart(dataToAdd));
+  };
+
   return (
     //  PAGE LAYOUT
     //     *product  summary
@@ -83,7 +97,9 @@ function ProductDetails(props) {
                   +
                 </button>
               </div>
-              <Button primary>Add to cart</Button>
+              <Button primary onClick={handleAddToCart}>
+                Add to cart
+              </Button>
             </div>
           </motion.div>
         </div>
@@ -99,7 +115,7 @@ function ProductDetails(props) {
             <h5>in the box</h5>
             <div className={classes.accessories__list}>
               {product.includes.map((accessory) => (
-                <div className={classes.accessories__item}>
+                <div className={classes.accessories__item} key={accessory.item}>
                   <h6>
                     {accessory.quantity}
                     <span>x</span>

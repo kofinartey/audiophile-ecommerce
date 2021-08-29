@@ -71,7 +71,9 @@ function Home() {
               className={classes.hero__btn}
               variants={heroItemVariant}
             >
-              <Button primary>See Product</Button>
+              <Link to="/headphones/xx99-mark-two-headphones">
+                <Button primary>See Product</Button>
+              </Link>
             </motion.div>
           </motion.div>
         </div>
@@ -96,7 +98,9 @@ function Home() {
                 Upgrade to premium speakers that are phenomenally built to
                 deliver truly remarkable sound.
               </p>
-              <Button dark>See product</Button>
+              <Link to="/speakers/zx9-speaker">
+                <Button dark>See product</Button>
+              </Link>
             </div>
           </div>
 
@@ -110,7 +114,9 @@ function Home() {
             <div className={classes.zx7__content}>
               <div className={classes.zx7__text}>
                 <h4>zx7 speaker</h4>
-                <Button outlined>See product</Button>
+                <Link to="/speakers/zx7-speaker">
+                  <Button outlined>See product</Button>
+                </Link>
               </div>
             </div>
           </div>
@@ -132,7 +138,9 @@ function Home() {
             </div>
             <div className={`${classes.yx1_two} ${classes.yx1_half}`}>
               <h4> yx1 earphones</h4>
-              <Button outlined>see product</Button>
+              <Link to="/earphones/yx1-earphones">
+                <Button outlined>see product</Button>
+              </Link>
             </div>
           </div>
         </div>

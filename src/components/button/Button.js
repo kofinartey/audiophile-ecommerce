@@ -40,7 +40,7 @@ function Button(props) {
   const classes = styles();
 
   return (
-    <button className={classes.Button}>
+    <button className={classes.Button} onClick={props.onClick}>
       {props.children}
       {!primary && !outlined && !dark && <img src={right_arrow} alt="" />}
     </button>

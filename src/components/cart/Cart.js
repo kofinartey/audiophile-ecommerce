@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { useSelector, useDispatch } from "react-redux";
+import { Link } from "react-router-dom";
 import {
   removeAll,
   increaseQty,
@@ -9,7 +10,6 @@ import {
 import formatAmount from "../../helper_functions/formatAmount";
 import Button from "../button/Button";
 import CartStyles from "./CartStyles";
-import { IconButton } from "@material-ui/core";
 import cartIcon from "../../assets/shared/desktop/icon-cart.svg";
 
 function Cart() {
@@ -70,54 +70,64 @@ function Cart() {
               <p onClick={handleRemove}>Remove all</p>
             </div>
 
-            <div className={classes.cart__list}>
-              {cartData.map((item) => (
-                <div className={classes.cart__item} key={item.id}>
-                  <div className={classes.item__image}>
-                    <img
-                      src={
-                        process.env.PUBLIC_URL +
-                        `/assets/cart/image-${item.slug}.jpg`
-                      }
-                      alt=""
-                    />
+            {/* conditionally render stuff if no item is added in cart */}
+            {cartCount > 0 ? (
+              <div className={classes.cart__list}>
+                {cartData.map((item) => (
+                  <div className={classes.cart__item} key={item.id}>
+                    <div className={classes.item__image}>
+                      <img
+                        src={
+                          process.env.PUBLIC_URL +
+                          `/assets/cart/image-${item.slug}.jpg`
+                        }
+                        alt=""
+                      />
+                    </div>
+                    <div className={classes.item__summary}>
+                      <h6>
+                        {item.name.substring(0, item.name.lastIndexOf(" "))}
+                      </h6>
+                      <p>${formatAmount(item.price)}</p>
+                      {/* <p>${formatAmount(item.price)}</p> */}
+                    </div>
+                    <div className={classes.input}>
+                      <button
+                        className={classes.btn}
+                        onClick={() => {
+                          dispatch(decreaseQty(item.id));
+                        }}
+                      >
+                        -
+                      </button>
+                      <h6>{item.qty}</h6>
+                      <button
+                        className={classes.btn}
+                        onClick={() => {
+                          dispatch(increaseQty(item.id));
+                        }}
+                      >
+                        +
+                      </button>
+                    </div>
                   </div>
-                  <div className={classes.item__summary}>
-                    <h6>
-                      {item.name.substring(0, item.name.lastIndexOf(" "))}
-                    </h6>
-                    <p>${formatAmount(item.price)}</p>
-                    {/* <p>${formatAmount(item.price)}</p> */}
-                  </div>
-                  <div className={classes.input}>
-                    <button
-                      className={classes.btn}
-                      onClick={() => {
-                        dispatch(decreaseQty(item.id));
-                      }}
-                    >
-                      -
-                    </button>
-                    <h6>{item.qty}</h6>
-                    <button
-                      className={classes.btn}
-                      onClick={() => {
-                        dispatch(increaseQty(item.id));
-                      }}
-                    >
-                      +
-                    </button>
-                  </div>
+                ))}
+                <div className={classes.total}>
+                  <p>TOTAL</p>
+                  <h6>$ {formatAmount(totalPrice)}</h6>
                 </div>
-              ))}
-              <div className={classes.total}>
-                <p>TOTAL</p>
-                <h6>$ {formatAmount(totalPrice)}</h6>
+                <div className={classes.checkout}>
+                  <Link
+                    to="/products/cart/checkout"
+                    onClick={() => setOpen(!open)}
+                  >
+                    <Button primary>CHECKOUT</Button>
+                  </Link>
+                </div>
               </div>
-              <div className={classes.checkout}>
-                <Button primary>CHECKOUT</Button>
-              </div>
-            </div>
+            ) : (
+              <h6>no item in cart</h6>
+            )}
           </div>
         </>
       )}

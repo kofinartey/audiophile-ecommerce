@@ -9,7 +9,7 @@ function Category(props) {
   const classes = CategoryStyles();
   const data = useSelector((state) => state.data);
   const categoryName = props.routeprops.match.params.category;
-
+  console.log(props);
   // go through data
   // find ones with category set to the same category passed down as a the prop
   const categoryData = data.filter((item) => item.category === categoryName);

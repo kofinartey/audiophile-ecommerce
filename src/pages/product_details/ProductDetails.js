@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import { v4 } from "uuid";
 import { addToCart } from "../../redux/cart/cartAction";
 
 import formatAmount from "../../helper_functions/formatAmount";
@@ -15,10 +14,9 @@ function ProductDetails(props) {
   const classes = ProductDetailsStyles();
   const [purchaseQty, setPurchaseQty] = useState(1);
   const allData = useSelector((state) => state.data);
-  const cartData = useSelector((state) => state.cart);
+  // const cartData = useSelector((state) => state.cart);
   const dispatch = useDispatch();
   const productName = props.routeprops.match.params.product;
-  allData.map((item) => console.log(item.name));
   const product = allData.find((item) => item.slug === productName);
 
   const addItem = () => {

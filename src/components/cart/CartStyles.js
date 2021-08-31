@@ -59,7 +59,6 @@ const CartStyles = makeStyles({
   },
   cart__item: {
     display: "flex",
-    // justifyContent: "space-between",
     alignItems: "center",
     marginBottom: "1rem",
     position: "relative",

@@ -1,7 +1,5 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import CloseSharpIcon from "@material-ui/icons/CloseSharp";
-import { IconButton } from "@material-ui/core";
 import hamburger from "../../assets/shared/tablet/icon-hamburger.svg";
 import MobileMenuStyles from "./MobileMenuStyles";
 

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 import logo from "../../assets/shared/desktop/logo.svg";
 import MobileMenu from "../mobile_menu/MobileMenu";

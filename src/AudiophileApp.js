@@ -6,6 +6,7 @@ import Footer from "./components/footer/Footer";
 import Home from "./pages/home/Home";
 import Category from "./pages/category/Category";
 import ProductDetails from "./pages/product_details/ProductDetails";
+import Checkout from "./pages/checkout/Checkout";
 import AppStyles from "./AudiophileAppStyles";
 
 function AudiophileApp() {
@@ -28,8 +29,12 @@ function AudiophileApp() {
             path="/:category/:product"
             render={(routeprops) => <ProductDetails routeprops={routeprops} />}
           />
-          {/* <Route exact path="/speakers" render={() => <Speakers />} />
-          <Route exact path="/earphones" render={() => <Earphones />} /> */}
+
+          <Route
+            exact
+            path="/products/cart/checkout"
+            render={() => <Checkout />}
+          />
         </div>
       </Switch>
 

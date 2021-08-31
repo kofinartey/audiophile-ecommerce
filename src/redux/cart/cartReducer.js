@@ -3,7 +3,7 @@ import {
   INCREASE_QTY,
   DECREASE_QTY,
   REMOVE_ALL,
-  CHECKOUT,
+  // CHECKOUT,
 } from "./cartTypes";
 
 const initialState = [];
@@ -14,8 +14,6 @@ const cartReducer = (state = initialState, action) => {
       const inCart = state.find((item) =>
         item.id === action.payload.id ? true : false
       );
-      !inCart && console.log("not in cart");
-      inCart && console.log("item exists in cart");
       const newCart = state.map((item) =>
         item.id === action.payload.id ? { ...item, qty: item.qty + 1 } : item
       );

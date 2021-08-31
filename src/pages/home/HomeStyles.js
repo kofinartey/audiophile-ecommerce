@@ -1,9 +1,6 @@
 import { makeStyles } from "@material-ui/core";
 import pattern from "../../assets/home/desktop/pattern-circles.svg";
 
-import speaker_zx7_mobile from "../../assets/home/mobile/image-speaker-zx7.jpg";
-import speaker_zx7_tablet from "../../assets/home/tablet/image-speaker-zx7.jpg";
-import speaker_zx7_desktop from "../../assets/home/desktop/image-speaker-zx7.jpg";
 const HomeStyles = makeStyles({
   Home: {
     width: "100%",

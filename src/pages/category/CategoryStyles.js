@@ -1,5 +1,4 @@
 import { makeStyles } from "@material-ui/core";
-import Headphones from "./Category";
 
 const CategoryStyles = makeStyles({
   page_header: {

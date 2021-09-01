@@ -10,7 +10,6 @@ import CompleteOrderStyles from "./CompleteOrderStyles";
 function CompleteOrder({ orderDetails }) {
   const classes = CompleteOrderStyles();
   const dispatch = useDispatch();
-  console.log(orderDetails);
   const { list, total } = orderDetails;
   return (
     <div className={classes.CompleteOrder}>

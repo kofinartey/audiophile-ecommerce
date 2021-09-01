@@ -2,9 +2,9 @@ import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useForm } from "react-hook-form";
 import { v4 } from "uuid";
-// import * as yup from "yup";
+
 import { yupResolver } from "@hookform/resolvers/yup";
-// import schema from "./schema";
+import schema from "./schema";
 import Input from "../../components/form_elements/Input";
 import RadioInput from "../../components/form_elements/RadioInput";
 import Button from "../../components/button/Button";
@@ -13,18 +13,6 @@ import { addOrder } from "../../redux/orders/ordersActions";
 import formatAmount from "../../helper_functions/formatAmount";
 import CheckoutStyles from "./CheckoutStyles";
 
-// const schema = yup.object().shape({
-//   name: yup.string().required(),
-//   email: yup.string(),
-//   phone: yup.number().required(),
-//   address: yup.number().required(),
-//   zip: yup.number().required(),
-//   city: yup.email().required(),
-//   country: yup.email().required(),
-//   e_money_number: yup.number().required(),
-//   e_money_pin: yup.number().required(),
-// });
-
 function Checkout() {
   const classes = CheckoutStyles();
   const dispatch = useDispatch();
@@ -32,7 +20,10 @@ function Checkout() {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm();
+  } = useForm({
+    mode: "onBlur",
+    resolver: yupResolver(schema),
+  });
   const [checkedStatus, setCheckedStatus] = useState({
     e_money: true,
     cash: false,
@@ -101,19 +92,21 @@ function Checkout() {
                 label="Name"
                 inputid="name"
                 {...register("name", { required: true })}
+                errors={errors.name?.message}
               />
-              <p>{errors.name && "something wrong"}</p>
               <Input
                 type="email"
                 label="Email Address"
                 inputid="email"
                 {...register("email", { required: true })}
+                errors={errors.email?.message}
               />
               <Input
                 type="tel"
                 label="Phone Number"
                 inputid="phone"
                 {...register("phone", { required: true })}
+                errors={errors.phone?.message}
               />
             </div>
             <p className={classes.form__section__title}>Shipping info</p>
@@ -123,24 +116,28 @@ function Checkout() {
                 label="Your Address"
                 inputid="address"
                 {...register("address", { required: true })}
+                errors={errors.address?.message}
               />
               <Input
                 type="text"
                 label="ZIP Code"
                 inputid="zipcode"
                 {...register("zip", { required: true })}
+                errors={errors.zip?.message}
               />
               <Input
                 type="text"
                 label="City"
                 inputid="city"
                 {...register("city", { required: true })}
+                errors={errors.city?.message}
               />
               <Input
                 type="text"
                 label="Country"
                 inputid="country"
                 {...register("country", { required: true })}
+                errors={errors.country?.message}
               />
             </div>
             <p className={classes.form__section__title}>Payment Details</p>
@@ -168,18 +165,22 @@ function Checkout() {
                   label="e-Money Number"
                   inputid="e-money-number"
                   style={{ opacity: checkedStatus.cash && "0.3" }}
-                  {...register("e-money-number", {
+                  {...register("e_money_number", {
                     required: checkedStatus.e_money && true,
                   })}
+                  disabled={checkedStatus.cash}
+                  errors={errors.e_money_number?.message}
                 />
                 <Input
                   type="password"
                   label="e-Money PIN"
                   inputid="e-money-pin"
                   style={{ opacity: checkedStatus.cash && "0.3" }}
-                  {...register("e-money-pin", {
+                  {...register("e_money_pin", {
                     required: checkedStatus.e_money && true,
                   })}
+                  disabled={checkedStatus.cash}
+                  errors={errors.e_money_pin?.message}
                 />
               </>
             </div>

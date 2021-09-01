@@ -5,6 +5,7 @@ const InputStyles = makeStyles({
     display: "flex",
     flexDirection: "column",
     marginBottom: "1rem",
+    position: "relative",
   },
   label: {
     fontWeight: "bold",
@@ -24,6 +25,12 @@ const InputStyles = makeStyles({
       boxShadow: "0 0 10px rgba(0,0,0,0.05)",
       outline: "none",
     },
+  },
+  errors: {
+    color: "#CD2C2C",
+    position: "absolute",
+    right: "0",
+    fontSize: "0.75rem",
   },
 });
 

@@ -17,7 +17,10 @@ const Input = forwardRef((props, ref) => {
         // name={props.name}
         ref={ref}
         onClick={props.onClick}
+        style={{ border: props.errors && "2px solid #CD2C2C" }}
+        disabled={props.disabled}
       />
+      <p className={classes.errors}>{props.errors}</p>
     </div>
   );
 });

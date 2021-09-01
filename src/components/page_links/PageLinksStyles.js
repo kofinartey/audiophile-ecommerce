@@ -58,7 +58,7 @@ const PageLinkStyles = makeStyles({
 
   "@media(min-width: 64rem)": {
     wrapper_page_links: {
-      width: "80%",
+      width: "77%",
     },
     link_container: {
       width: "32%",

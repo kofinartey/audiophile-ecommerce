@@ -95,7 +95,7 @@ const FooterStyles = makeStyles({
 
   "@media(min-width: 64rem)": {
     wrapper: {
-      width: "80%",
+      width: "77%",
     },
     nav__links: {
       position: "absolute",

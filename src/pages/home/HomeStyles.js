@@ -207,9 +207,16 @@ const HomeStyles = makeStyles({
   },
 
   "@media(min-width: 64rem)": {
+    hero: {
+      display: "block",
+    },
     hero__wrapper: {
-      width: "80%",
+      margin: "0 12%",
+      width: "77%",
       alignItems: "flex-start",
+      "& img": {
+        width: "100%",
+      },
     },
     hero__content: {
       width: "40%",
@@ -225,8 +232,8 @@ const HomeStyles = makeStyles({
       },
     },
 
-    wrapper_featured: {
-      width: "90%",
+    featured: {
+      width: "77%",
     },
     speaker_zx9: {
       backgroundPosition: "center",
@@ -254,7 +261,7 @@ const HomeStyles = makeStyles({
   },
   "@media(min-width: 70rem)": {
     hero__wrapper: {
-      width: "80%",
+      // width: "80%",
       alignItems: "flex-start",
     },
     hero__content: {
@@ -263,6 +270,7 @@ const HomeStyles = makeStyles({
         margin: "2rem 0",
       },
     },
+
     zx9_picture: {
       "& img": {
         width: "60%",

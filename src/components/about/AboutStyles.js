@@ -54,7 +54,7 @@ const AboutStyles = makeStyles({
     wrapper__about: {
       flexDirection: "row-reverse",
       justifyContent: "space-between",
-      width: "80%",
+      width: "77%",
     },
     about__img: {
       width: "50%",

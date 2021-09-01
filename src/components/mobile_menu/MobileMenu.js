@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import PageLinks from "../page_links/PageLinks";
 import hamburger from "../../assets/shared/tablet/icon-hamburger.svg";
 import MobileMenuStyles from "./MobileMenuStyles";
 
@@ -21,31 +21,12 @@ function MobileMenu() {
         style={{ opacity: open && "1", pointerEvents: open && "all" }}
         onClick={handleClick}
       ></div>
-      <div className={classes.menu} style={{ left: open && "0" }}>
-        <Link to="/" className={classes.mobile__Link} onClick={handleClick}>
-          HOME
-        </Link>
-        <Link
-          to="/headphones"
-          className={classes.mobile__Link}
-          onClick={handleClick}
-        >
-          HEADPHONES
-        </Link>
-        <Link
-          to="/speakers"
-          className={classes.mobile__Link}
-          onClick={handleClick}
-        >
-          SPEAKERS
-        </Link>
-        <Link
-          to="/earphones"
-          className={classes.mobile__Link}
-          onClick={handleClick}
-        >
-          EARPHONES
-        </Link>
+      <div
+        className={classes.menu}
+        onClick={handleClick}
+        style={{ left: open && "0" }}
+      >
+        <PageLinks />
       </div>
     </div>
   );

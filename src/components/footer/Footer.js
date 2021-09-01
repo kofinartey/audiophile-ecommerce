@@ -32,7 +32,7 @@ function Footer() {
           </p>
         </div>
         <div className={classes.copyright}>
-          <h4>Copyright 2021. All Rights Reserved</h4>
+          <p>Copyright 2021. All Rights Reserved</p>
         </div>
         <div className={classes.social}>
           <Link to="#">

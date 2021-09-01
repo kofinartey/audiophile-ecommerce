@@ -44,6 +44,7 @@ function RadioInput(props) {
         className={classes.input}
         name={props.name}
         id={props.inputid}
+        value={props.inputid}
         checked={props.checked}
         onChange={props.onChange}
       />

@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import { addToCart } from "../../redux/cart/cartAction";
 
 import formatAmount from "../../helper_functions/formatAmount";
+import GoBack from "../../components/form_elements/GoBack";
 import Button from "../../components/button/Button";
 import About from "../../components/about/About";
 import PageLinks from "../../components/page_links/PageLinks";
@@ -14,7 +15,6 @@ function ProductDetails(props) {
   const classes = ProductDetailsStyles();
   const [purchaseQty, setPurchaseQty] = useState(1);
   const allData = useSelector((state) => state.data);
-  // const cartData = useSelector((state) => state.cart);
   const dispatch = useDispatch();
   const productName = props.routeprops.match.params.product;
   const product = allData.find((item) => item.slug === productName);
@@ -45,7 +45,9 @@ function ProductDetails(props) {
     <div className={classes.ProductDetails}>
       <div className={classes.header}></div>
       <div className={classes.wrapper}>
-        <p className={classes.go_back}>Go Back</p>
+        <div className={classes.go_back}>
+          <GoBack />
+        </div>
 
         <div className={classes.product__summary}>
           <picture className={classes.product__picture}>

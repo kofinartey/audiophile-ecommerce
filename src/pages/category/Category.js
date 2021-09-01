@@ -9,10 +9,21 @@ function Category(props) {
   const classes = CategoryStyles();
   const data = useSelector((state) => state.data);
   const categoryName = props.routeprops.match.params.category;
-  console.log(props);
+
   // go through data
   // find ones with category set to the same category passed down as a the prop
   const categoryData = data.filter((item) => item.category === categoryName);
+
+  //rearrange items to bring new products first in the list
+  const sortedData = categoryData.sort((a, b) => {
+    if (a.new === false && b.new === true) {
+      return 1;
+    } else if (a.new === true && b.new === false) {
+      return -1;
+    }
+    return 0;
+  });
+
   return (
     <div>
       <div className={classes.page_header}>
@@ -20,7 +31,7 @@ function Category(props) {
       </div>
 
       {/* render the items in that category */}
-      {categoryData.map((product) => (
+      {sortedData.map((product) => (
         <ProductSummary product={product} key={product.name} />
       ))}
 

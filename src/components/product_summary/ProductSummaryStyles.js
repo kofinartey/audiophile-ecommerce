@@ -57,7 +57,7 @@ const ProductSummaryStyles = makeStyles({
 
   "@media(min-width: 64rem)": {
     wrapper: {
-      width: "80%",
+      width: "77%",
       flexDirection: "row-reverse",
       justifyContent: "space-between",
     },

@@ -10,6 +10,7 @@ const MobileMenuStyles = makeStyles({
     position: "fixed",
     left: "0",
     top: "5.625rem",
+    borderRadius: "0 0 0.5rem 0.5rem",
     opacity: "0",
     pointerEvents: "none",
     transition: "all .3s ease-in-out",
@@ -18,7 +19,9 @@ const MobileMenuStyles = makeStyles({
     cursor: "pointer",
   },
   menu: {
-    backgroundColor: "#101010",
+    // backgroundColor: "#101010",
+    backgroundColor: "white",
+
     width: "100%",
     display: "flex",
     flexDirection: "column",
@@ -27,15 +30,7 @@ const MobileMenuStyles = makeStyles({
     top: "5.625rem",
     left: "-1000rem",
     transition: "all .3s ease-in-out",
-  },
-
-  mobile__Link: {
-    color: "white",
-    padding: "2rem",
-    transition: "all .3s ease-in-out",
-    "&:hover": {
-      color: "#D87D4A",
-    },
+    zIndex: "1000",
   },
 });
 

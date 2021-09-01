@@ -12,6 +12,7 @@ import CompleteOrder from "../../components/complete_order/CompleteOrder";
 import { addOrder } from "../../redux/orders/ordersActions";
 import formatAmount from "../../helper_functions/formatAmount";
 import CheckoutStyles from "./CheckoutStyles";
+import GoBack from "../../components/form_elements/GoBack";
 
 function Checkout() {
   const classes = CheckoutStyles();
@@ -78,7 +79,9 @@ function Checkout() {
         />
       )}
       <div className={classes.wrapper}>
-        <p className={classes.go_back}>Go Back</p>
+        <div className={classes.go_back}>
+          <GoBack />
+        </div>
         <form
           className={classes.form}
           onSubmit={handleSubmit(handleFormSubmit)}

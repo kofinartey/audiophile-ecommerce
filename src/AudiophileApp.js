@@ -1,6 +1,5 @@
 import React from "react";
 import { Switch, Route } from "react-router-dom";
-
 import Header from "./components/header/Header";
 import Footer from "./components/footer/Footer";
 import Home from "./pages/home/Home";
@@ -17,25 +16,23 @@ function AudiophileApp() {
         <Header />
       </div>
       <Switch>
-        <div className={classes.main__content}>
-          <Route exact path="/" render={() => <Home />} />
-          <Route
-            exact
-            path="/:category"
-            render={(routeprops) => <Category routeprops={routeprops} />}
-          />
-          <Route
-            exact
-            path="/:category/:product"
-            render={(routeprops) => <ProductDetails routeprops={routeprops} />}
-          />
+        <Route exact path="/" render={() => <Home />} />
+        <Route
+          exact
+          path="/:category"
+          render={(routeprops) => <Category routeprops={routeprops} />}
+        />
+        <Route
+          exact
+          path="/:category/:product"
+          render={(routeprops) => <ProductDetails routeprops={routeprops} />}
+        />
 
-          <Route
-            exact
-            path="/products/cart/checkout"
-            render={() => <Checkout />}
-          />
-        </div>
+        <Route
+          exact
+          path="/products/cart/checkout"
+          render={() => <Checkout />}
+        />
       </Switch>
 
       <Footer />

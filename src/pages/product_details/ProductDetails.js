@@ -195,7 +195,7 @@ function ProductDetails(props) {
           <h5 className={classes.suggested__heading}>you may also like</h5>
           <div className={classes.suggested__list}>
             {product.others.map((item) => (
-              <div className={classes.suggested__item}>
+              <div className={classes.suggested__item} key={item.name}>
                 <picture>
                   <source
                     srcSet={process.env.PUBLIC_URL + `${item.image.desktop}`}

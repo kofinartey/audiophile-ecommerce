@@ -19,9 +19,7 @@ const MobileMenuStyles = makeStyles({
     cursor: "pointer",
   },
   menu: {
-    // backgroundColor: "#101010",
     backgroundColor: "white",
-
     width: "100%",
     display: "flex",
     flexDirection: "column",

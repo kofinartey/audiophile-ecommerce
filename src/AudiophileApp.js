@@ -1,5 +1,4 @@
 import React from "react";
-import { useSelector } from "react-redux";
 import { Switch, Route } from "react-router-dom";
 import Header from "./components/header/Header";
 import Footer from "./components/footer/Footer";
@@ -11,7 +10,6 @@ import AppStyles from "./AudiophileAppStyles";
 
 function AudiophileApp() {
   const classes = AppStyles();
-  const modalOpen = useSelector((state) => state.modal);
   return (
     <div>
       <div className={classes.header}>

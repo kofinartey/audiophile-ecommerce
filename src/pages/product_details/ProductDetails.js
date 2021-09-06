@@ -32,8 +32,14 @@ function ProductDetails(props) {
     price: product.price,
     qty: purchaseQty,
   };
+
+  const resetQty = () => {
+    setPurchaseQty(1);
+  };
+
   const handleAddToCart = () => {
     dispatch(addToCart(dataToAdd));
+    resetQty();
   };
 
   return (
@@ -211,7 +217,12 @@ function ProductDetails(props) {
                   />
                 </picture>
                 <h5>{item.name}</h5>
-                <Link to={`/${product.category}/${item.slug}`}>
+                <Link
+                  to={`/${product.category}/${item.slug}`}
+                  onClick={() => {
+                    resetQty();
+                  }}
+                >
                   <Button primary>see product</Button>
                 </Link>
               </div>

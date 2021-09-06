@@ -5,7 +5,7 @@ const AppStyles = makeStyles({
     width: "100%",
     position: "absolute",
     top: "0",
-    zIndex: "1000",
+    zIndex: "2000",
   },
 });
 

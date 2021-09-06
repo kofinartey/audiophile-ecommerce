@@ -5,7 +5,6 @@ const initialState = [];
 const ordersReducer = (state = initialState, action) => {
   switch (action.type) {
     case ADD_ORDER:
-      console.log("ADDING....");
       return [...state, action.payload];
 
     default:

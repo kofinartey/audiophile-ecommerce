@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import PageLinks from "../page_links/PageLinks";
 import hamburger from "../../assets/shared/tablet/icon-hamburger.svg";
 import MobileMenuStyles from "./MobileMenuStyles";
@@ -10,6 +10,15 @@ function MobileMenu() {
   const handleClick = () => {
     setOpen(!open);
   };
+
+  //change scrolling effects on
+  useEffect(() => {
+    if (open) {
+      document.body.setAttribute("style", `overflow-y: hidden`);
+    } else if (!open) {
+      document.body.setAttribute("style", `overflow-y: scroll`);
+    }
+  }, [open]);
 
   return (
     <div className={classes.MobileMenu}>

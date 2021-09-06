@@ -32,6 +32,14 @@ function Cart() {
     setTotalPrice(total);
   }, [cartData]);
 
+  //remove scrolling when modal is open
+  useEffect(() => {
+    if (open) {
+      document.body.setAttribute("style", `overflow-y: hidden`);
+    } else if (!open) {
+      document.body.setAttribute("style", `overflow-y: scroll`);
+    }
+  }, [open]);
   const handleRemove = () => {
     dispatch(removeAll());
   };

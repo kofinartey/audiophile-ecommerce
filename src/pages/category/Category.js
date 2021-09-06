@@ -8,6 +8,8 @@ import CategoryStyles from "./CategoryStyles";
 function Category(props) {
   const classes = CategoryStyles();
   const data = useSelector((state) => state.data);
+  const modalOpen = useSelector((state) => state.modal);
+
   const categoryName = props.routeprops.match.params.category;
 
   // go through data
@@ -25,7 +27,11 @@ function Category(props) {
   });
 
   return (
-    <div>
+    <div
+      style={{
+        overflowY: modalOpen && "hidden",
+      }}
+    >
       <div className={classes.page_header}>
         <h4>{categoryName.toUpperCase()}</h4>
       </div>

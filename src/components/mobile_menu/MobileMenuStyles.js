@@ -9,7 +9,9 @@ const MobileMenuStyles = makeStyles({
     backgroundColor: "rgba(0,0,0,0.5)",
     position: "fixed",
     left: "0",
-    top: "5.625rem",
+    top: "0",
+    overflowY: "hidden",
+    // top: "5.625rem",
     borderRadius: "0 0 0.5rem 0.5rem",
     opacity: "0",
     pointerEvents: "none",
@@ -27,6 +29,7 @@ const MobileMenuStyles = makeStyles({
     position: "absolute",
     top: "5.625rem",
     left: "-1000rem",
+
     transition: "all .3s ease-in-out",
     zIndex: "1000",
   },

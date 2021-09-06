@@ -3,7 +3,8 @@ import { makeStyles } from "@material-ui/core";
 const HeaderStyles = makeStyles({
   Header: {
     height: "5.625rem",
-    // backgroundColor: "#101010",
+    width: "100%",
+    minWidth: "375px",
     display: "flex",
     justifyContent: "center",
     alignItems: "center",

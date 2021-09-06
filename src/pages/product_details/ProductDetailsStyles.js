@@ -133,10 +133,10 @@ const ProductDetailsStyles = makeStyles({
   suggested: {
     width: "100%",
     marginTop: "6rem",
-    "& h5:nth-of-type(1)": {
-      textAlign: "center",
-      marginBottom: "3rem",
-    },
+  },
+  suggested__heading: {
+    textAlign: "center",
+    marginBottom: "3rem",
   },
   suggested__list: {
     display: "flex",
@@ -245,6 +245,9 @@ const ProductDetailsStyles = makeStyles({
     },
     accessories__list: {
       width: "100%",
+    },
+    suggested__item: {
+      width: "32%",
     },
   },
 

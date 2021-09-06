@@ -24,16 +24,16 @@ const CartStyles = makeStyles({
     },
   },
   overlay: {
-    width: "100vw",
+    width: "100%",
     height: "100vh",
     position: "fixed",
-    left: "0",
-    top: "5.625rem",
+    right: "0",
+    top: "0",
     backgroundColor: "rgba(0,0,0,0.5)",
   },
   cart__content: {
+    width: "100%",
     minWidth: "21rem",
-    width: "24rem",
     backgroundColor: "white",
     borderRadius: "0.5rem",
     padding: "2rem 1rem",
@@ -121,6 +121,7 @@ const CartStyles = makeStyles({
 
   "@media(min-width: 48rem)": {
     cart__content: {
+      width: "24rem",
       padding: "2rem",
     },
   },
